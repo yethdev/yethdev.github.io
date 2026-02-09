@@ -17,7 +17,7 @@ npm install
 npm run dev
 ```
 
-i dont wanna get charged for distributing copyrighted content so music is streamed from yeth.dev, if my servers are down music is downt too
+i dont wanna get charged for distributing copyrighted content so music is streamed from yeth.dev. if your computer cant access yeth.dev, music wont play.
 
 ## license
 

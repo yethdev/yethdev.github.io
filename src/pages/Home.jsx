@@ -37,8 +37,8 @@ export default function Home() {
 
         <p className="hero-subtitle">
           I like breaking things and fixing them. Really into{' '}
-          <strong>cybersecurity</strong>, <strong>networking</strong>,
-          and lately <strong>AI/ML</strong>. Self-taught and always working on a project
+          cybersecurity, networking,
+          and recently AI/ML. Self-taught and always working on a project
         </p>
 
         <div className="hero-cta">
