@@ -19,7 +19,11 @@ export default function MusicPlayer() {
   const [toast, setToast] = useState(false)
 
   useEffect(() => {
-    if (audio.current) { audio.current.volume = 1; audio.current.loop = true }
+    if (audio.current) {
+      audio.current.src = 'https://yeth.dev/audio.mp3'
+      audio.current.volume = 1
+      audio.current.loop = true
+    }
   }, [])
 
   function initAudio() {
@@ -104,7 +108,7 @@ export default function MusicPlayer() {
         </div>
       )}
       <div className="music-player" ref={player} onMouseLeave={() => setVolOpen(false)}>
-      <audio ref={audio} src="/audio.mp3" preload="auto" loop />
+      <audio ref={audio} crossOrigin="anonymous" preload="none" loop />
       {!isMobile && (
         <div className={`music-volume${volOpen ? ' visible' : ''}`}>
           <input
