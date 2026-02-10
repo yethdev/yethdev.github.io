@@ -24,8 +24,8 @@ const PROJECTS = [
   },
   {
     name: 'flight search',
-    description: 'SearXNG with custom optimized engines for speed, zero logging, a google-like interface, ai overviews, and kid-safe results',
-    tags: ['infrastructure', 'privacy', 'searxng'],
+    description: 'kid-safe search engine with ai overviews, no logging, and a familiar google-like interface. just set it as your default and forget about it',
+    tags: ['kid-safe', 'privacy', 'searxng'],
     status: 'stable',
     sub: 'search',
     category: ['infrastructure', 'forks'],
