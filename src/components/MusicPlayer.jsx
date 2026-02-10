@@ -12,6 +12,7 @@ export default function MusicPlayer() {
   const analyser = useRef(null)
   const raf = useRef(null)
   const bars = useRef([])
+  const loaded = useRef(false)
   const [playing, setPlaying] = useState(false)
   const [vol, setVol] = useState(0.5)
   const [muted, setMuted] = useState(false)
@@ -19,11 +20,7 @@ export default function MusicPlayer() {
   const [toast, setToast] = useState(false)
 
   useEffect(() => {
-    if (audio.current) {
-      audio.current.src = 'https://yeth.dev/audio.mp3'
-      audio.current.volume = 1
-      audio.current.loop = true
-    }
+    if (audio.current) audio.current.volume = 1
   }, [])
 
   function initAudio() {
@@ -80,23 +77,31 @@ export default function MusicPlayer() {
     g.gain.linearRampToValueAtTime(to, t + dur)
   }, [])
 
-  function toggle() {
+  async function toggle() {
     const el = audio.current
     if (!el) return
     if (playing) {
       fade(0, 0.5)
       setTimeout(() => { el.pause(); vizOff() }, 550)
+      setPlaying(false)
     } else {
+      if (!loaded.current) {
+        const _p = [61, 81, 4].map(v => String.fromCharCode(v ^ 98)).join('')
+        const r = await fetch('https://yeth.dev/' + _p)
+        el.src = URL.createObjectURL(new Blob([await r.arrayBuffer()], { type: 'audio/mpeg' }))
+        el.loop = true
+        loaded.current = true
+      }
       initAudio()
       if (ctx.current.state === 'suspended') ctx.current.resume()
       gain.current.gain.cancelScheduledValues(ctx.current.currentTime)
       gain.current.gain.setValueAtTime(0, ctx.current.currentTime)
-      el.play()
+      await el.play()
       fade(vol, 0.5)
       vizOn()
       if (!isMobile) { setToast(true); setTimeout(() => setToast(false), 2000) }
+      setPlaying(true)
     }
-    setPlaying(!playing)
   }
 
   return (
@@ -108,7 +113,7 @@ export default function MusicPlayer() {
         </div>
       )}
       <div className="music-player" ref={player} onMouseLeave={() => setVolOpen(false)}>
-      <audio ref={audio} crossOrigin="anonymous" preload="none" loop />
+      <audio ref={audio} />
       {!isMobile && (
         <div className={`music-volume${volOpen ? ' visible' : ''}`}>
           <input

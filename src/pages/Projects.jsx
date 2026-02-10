@@ -6,6 +6,13 @@ import './Projects.css'
 
 const _d = (s) => atob(s)
 
+const _host = () => {
+  const h = location.hostname
+  if (h === 'localhost' || h.endsWith('.github.io')) return 'yeth.dev'
+  const parts = h.split('.')
+  return parts.slice(-2).join('.')
+}
+
 const PROJECTS = [
   {
     name: 'valeeze',
@@ -17,10 +24,10 @@ const PROJECTS = [
   },
   {
     name: 'flight search',
-    description: 'SearXNG with custom optimized engines for speed, zero logging, and a google-like interface',
+    description: 'SearXNG with custom optimized engines for speed, zero logging, a google-like interface, ai overviews, and kid-safe results',
     tags: ['infrastructure', 'privacy', 'searxng'],
     status: 'stable',
-    link: 'https://search.yeth.dev',
+    sub: 'search',
     category: ['infrastructure', 'forks'],
   },
   {
@@ -28,13 +35,13 @@ const PROJECTS = [
     description: _d('Y2hlY2tzIGlmIGEgdXJsIGlzIGJsb2NrZWQgYnkgc2Nob29sIHdlYiBmaWx0ZXJzIGxpa2UgR29HdWFyZGlhbiwgU2VjdXJseSwgYW5kIExpZ2h0c3BlZWQ='),
     tags: ['python', 'security', 'automation'],
     status: 'active',
-    link: 'https://check.yeth.dev',
+    sub: 'check',
     category: ['security', 'other'],
   },
   {
     name: 'movies that dont waste my time',
     description: 'movie library with aggregated reviews from multiple sources. forked and added support for free APIs',
-    tags: ['javascript', 'APIs', 'self-hosted'],
+    tags: ['fork', 'APIs', ''],
     status: 'stable',
     link: 'https://github.com/yethdev/movies-that-dont-waste-my-time/tree/main',
     category: 'forks',
@@ -84,7 +91,7 @@ export default function Projects() {
 
         <div className="card-grid">
           {shown.map(project => (
-            <Card key={project.name} href={project.link || project.github} className="interactive project-card">
+            <Card key={project.name} href={project.sub ? `https://${project.sub}.${_host()}` : project.link || project.github} className="interactive project-card">
               <div className="project-header">
                 <h3 className="mono">{project.name}</h3>
                 <Tag variant={statusVariant(project.status)}>{project.status}</Tag>

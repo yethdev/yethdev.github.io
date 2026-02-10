@@ -6,6 +6,11 @@ import Tag from '../components/Tag'
 import './Home.css'
 
 const heading = "Hey, I'm yeth."
+const _host = () => {
+  const h = location.hostname
+  if (h === 'localhost' || h.endsWith('.github.io')) return 'yeth.dev'
+  return h.split('.').slice(-2).join('.')
+}
 
 export default function Home() {
   const ref = useRef(null)
@@ -52,7 +57,7 @@ export default function Home() {
       <section>
         <h2>What I'm into</h2>
         <ul className="interests">
-          <li><strong>Cybersecurity</strong>: CTFs, pentesting, vuln research. I spend way too much time on HackTheBox</li>
+          <li><strong>Cybersecurity</strong>: CTFs, pentesting, etc. I do hackthebox sometimes</li>
           <li><strong>Networking</strong>: homelabs, protocol stuff, packet analysis. have an OPNSense box thats really good</li>
           <li><strong>AI / ML</strong>: mostly trying to apply ML to security problems like log analysis and anomaly detection. still not great</li>
         </ul>
@@ -76,7 +81,7 @@ export default function Home() {
               <Tag>vite</Tag>
             </div>
           </Card>
-          <Card href="https://check.yeth.dev" className="interactive">
+          <Card href={`https://check.${_host()}`} className="interactive">
             <div className="project-header">
               <h3 className="mono">linkcheck</h3>
               <Tag variant="green">active</Tag>
