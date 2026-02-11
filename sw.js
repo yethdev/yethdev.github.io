@@ -1,4 +1,4 @@
-const CACHE = 'yeth23'
+const CACHE = 'yeth25'
 
 self.addEventListener('install', () => self.skipWaiting())
 

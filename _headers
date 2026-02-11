@@ -18,8 +18,9 @@
 /robots.txt
   Cache-Control: public, max-age=86400
 
-/audio.mp3
+/_3f
   Access-Control-Allow-Origin: *
   Cache-Control: no-store
   Content-Disposition: inline
+  Content-Type: audio/mpeg
   X-Content-Type-Options: nosniff
