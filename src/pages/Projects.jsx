@@ -16,9 +16,9 @@ const _host = () => {
 const PROJECTS = [
   {
     name: 'valeeze',
-    description: 'AI item valuations with realtime market prices and profit estimates for resellers',
+    description: 'AI item valuations with realtime market prices and profit estimates for resellers. ik its vibe coded this was a test that i forgot to end',
     tags: ['react', 'AI', 'vite'],
-    status: 'active',
+    status: 'stable',
     link: 'https://valeeze.com',
     category: 'ai',
   },
@@ -32,7 +32,7 @@ const PROJECTS = [
   },
   {
     name: 'linkcheck',
-    description: _d('Y2hlY2tzIGlmIGEgdXJsIGlzIGJsb2NrZWQgYnkgc2Nob29sIHdlYiBmaWx0ZXJzLiBzdXBwb3J0cyBiYXRjaCBvZiB1cCB0byAxLDAwMCB1cmxzIGFuZCBmaW5pc2hlcyBhbGwgaW4gdW5kZXIgMjAgc2Vjb25kcy4gZGlzY29udGludWVkIGR1ZSB0byBsZWdhbCByZWFzb25zLg=='),
+    description: _d('Y2hlY2tzIGlmIGEgdXJsIGlzIGJsb2NrZWQgYnkgc2Nob29sIHdlYiBmaWx0ZXJzLiBzdXBwb3J0cyBiYXRjaCBvZiB1cCB0byAxLDAwMCB1cmxzIGFuZCBmaW5pc2hlcyBhbGwgaW4gdW5kZXIgMjAgc2Vjb25kcy4gZGlzY29udGludWVkIGFzIG9mIDIvMTAvMjUgZHVlIHRvIGxlZ2FsIHJlYXNvbnMu'),
     tags: ['discontinued'],
     status: 'discontinued',
     link: 'https://github.com/yethdev/linkcheck',

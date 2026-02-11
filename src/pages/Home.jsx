@@ -69,28 +69,6 @@ export default function Home() {
           <Link to="/projects" className="see-all">See all <ChevronRight size={16} /></Link>
         </div>
         <div className="card-grid">
-          <Card href="https://valeeze.com" className="interactive">
-            <div className="project-header">
-              <h3 className="mono">valeeze</h3>
-              <Tag variant="green">active</Tag>
-            </div>
-            <p>AI item valuations with realtime market prices and profit estimates for resellers</p>
-            <div className="tags">
-              <Tag>react</Tag>
-              <Tag>AI</Tag>
-              <Tag>vite</Tag>
-            </div>
-          </Card>
-          <Card className="interactive">
-            <div className="project-header">
-              <h3 className="mono">linkcheck</h3>
-              <Tag variant="muted">discontinued</Tag>
-            </div>
-            <p>discontinued due to legal reasons</p>
-            <div className="tags">
-              <Tag>discontinued</Tag>
-            </div>
-          </Card>
         </div>
       </section>
     </div>
