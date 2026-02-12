@@ -4,7 +4,8 @@
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   transition: border-color 0.2s;
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 a.card {

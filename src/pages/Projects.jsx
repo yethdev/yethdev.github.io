@@ -6,20 +6,25 @@ import './Projects.css'
 
 const _d = (s) => atob(s)
 
-const _host = () => {
+const _onYeth = () => {
   const h = location.hostname
-  if (h === 'localhost' || h.endsWith('.github.io')) return 'yeth.dev'
-  const parts = h.split('.')
-  return parts.slice(-2).join('.')
+  return h === 'yeth.dev' || h === 'www.yeth.dev' || h === 'localhost'
+}
+
+const _projectUrl = (p) => {
+  if (_onYeth() && p.prodLink) return p.prodLink
+  if (p.sub) return `https://${p.sub}.${location.hostname}`
+  return p.link || p.github
 }
 
 const PROJECTS = [
   {
     name: 'valeeze',
     description: 'AI item valuations with realtime market prices and profit estimates for resellers. ik its vibe coded this was a test that i forgot to end',
-    tags: ['react', 'AI', 'vibe coded 🫩'],
+    tags: ['react', 'AI', 'vibe coded sry'],
     status: 'stable',
-    link: 'https://valeeze.com',
+    prodLink: 'https://valeeze.com',
+    sub: 'valeeze',
     category: 'ai',
   },
   {
@@ -27,6 +32,7 @@ const PROJECTS = [
     description: 'kid-safe search engine with ai overviews, no logging, and a familiar google-like interface. just set it as your default and forget about it',
     tags: ['kid-safe', 'privacy', 'searxng'],
     status: 'stable',
+    prodLink: 'https://flightsearch.kids',
     sub: 'search',
     category: ['infrastructure', 'forks'],
   },
@@ -91,7 +97,7 @@ export default function Projects() {
 
         <div className="card-grid">
           {shown.map(project => (
-            <Card key={project.name} href={project.sub ? `https://${project.sub}.${_host()}` : project.link || project.github} className="interactive project-card">
+            <Card key={project.name} href={_projectUrl(project)} className="interactive project-card">
               <div className="project-header">
                 <h3 className="mono">{project.name}</h3>
                 <Tag variant={statusVariant(project.status)}>{project.status}</Tag>

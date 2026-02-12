@@ -5,6 +5,7 @@ import Card from '../components/Card'
 import Tag from '../components/Tag'
 import './Home.css'
 
+const _d = (s) => atob(s)
 const heading = "Hey, I'm yeth."
 const _host = () => {
   const h = location.hostname
@@ -69,6 +70,16 @@ export default function Home() {
           <Link to="/projects" className="see-all">See all <ChevronRight size={16} /></Link>
         </div>
         <div className="card-grid">
+          <Card href="https://github.com/yethdev/linkcheck" className="interactive">
+            <div className="project-header">
+              <h3 className="mono">linkcheck</h3>
+              <Tag variant="muted">discontinued</Tag>
+            </div>
+            <p>{_d('Y2hlY2tzIGlmIGEgdXJsIGlzIGJsb2NrZWQgYnkgc2Nob29sIHdlYiBmaWx0ZXJzLiBzdXBwb3J0cyBiYXRjaCBvZiB1cCB0byAxLDAwMCB1cmxzIGFuZCBmaW5pc2hlcyBhbGwgaW4gdW5kZXIgMjAgc2Vjb25kcy4gZGlzY29udGludWVkIGFzIG9mIDIvMTAvMjUgZHVlIHRvIGxlZ2FsIHJlYXNvbnMu')}</p>
+            <div className="tags">
+              <Tag variant="muted">discontinued</Tag>
+            </div>
+          </Card>
         </div>
       </section>
     </div>
