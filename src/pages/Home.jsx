@@ -75,7 +75,7 @@ export default function Home() {
               <h3 className="mono">linkcheck</h3>
               <Tag variant="muted">discontinued</Tag>
             </div>
-            <p>{_d('Y2hlY2tzIGlmIGEgdXJsIGlzIGJsb2NrZWQgYnkgc2Nob29sIHdlYiBmaWx0ZXJzLiBzdXBwb3J0cyBiYXRjaCBvZiB1cCB0byAxLDAwMCB1cmxzIGFuZCBmaW5pc2hlcyBhbGwgaW4gdW5kZXIgMjAgc2Vjb25kcy4gZGlzY29udGludWVkIGFzIG9mIDIvMTAvMjUgZHVlIHRvIGxlZ2FsIHJlYXNvbnMu')}</p>
+            <p>{_d('dXJsIGFjY2Vzc2liaWxpdHkgY2hlY2tlciwgdGVzdHMgaWYgc2l0ZXMgYXJlIHJlYWNoYWJsZSBmcm9tIGRpZmZlcmVudCBuZXR3b3Jrcy4gc3VwcG9ydHMgYmF0Y2ggb2YgdXAgdG8gMSwwMDAgdXJscyBpbiB1bmRlciAyMCBzZWNvbmRzLiBkaXNjb250aW51ZWQgYXMgb2YgMi8xMC8yNQ==')}</p>
             <div className="tags">
               <Tag variant="muted">discontinued</Tag>
             </div>
